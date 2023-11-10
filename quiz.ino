@@ -190,4 +190,5 @@ void loop() {
 
   // On affiche le score final
   conclusionMessage(score);
+  Serial.println();
 }
