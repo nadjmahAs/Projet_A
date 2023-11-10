@@ -1,16 +1,10 @@
 /*
-  IMU Classifier
-  This example uses the on-board IMU to start reading acceleration and gyroscope
-  data from on-board IMU, once enough samples are read, it then uses a
-  TensorFlow Lite (Micro) model to try to classify the movement as a known gesture.
-  Note: The direct use of C/C++ pointers, namespaces, and dynamic memory is generally
-        discouraged in Arduino examples, and in the future the TensorFlowLite library
-        might change to make the sketch simpler.
-  The circuit:
-  - Arduino Nano 33 BLE or Arduino Nano 33 BLE Sense board.
-  Created by Don Coleman, Sandeep Mistry
-  Modified by Dominic Pajak, Sandeep Mistry
-  This example code is in the public domain.
+  Quiz avec Détection de Gestes par l'IMU
+  Ce programme utilise l'unité inertielle (IMU) intégrée pour capturer les données
+  d'accélération et de gyroscope. Une fois un nombre suffisant d'échantillons collectés,
+  le programme utilise un modèle TensorFlow Lite (Micro) pour classer le mouvement comme un geste connu.
+  
+  Nadjmah ALI SOIDIKI
 */
 
 #include <Arduino_LSM9DS1.h>
@@ -109,7 +103,7 @@ bool askQuestion(const char* question) {
         if (invokeStatus != kTfLiteOk) {
           Serial.println("Invoke failed!");
           while (1);
-          return;
+          return false;
         }
 
         // Loop through the output tensor values from the model
